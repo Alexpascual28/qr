@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=https://hararemakers.com/" />
+    <title>Aura VIP Lounge - Menu</title>
+    <script>
+      // 1. Put your main ordering menu URL here (do not include ?table= at the end)
+      const baseMenuUrl = "https://your-ordering-platform.com";
+
+      // 2. Read the table number from the QR code link
+      const params = new URLSearchParams(window.location.search);
+      const table = params.get("table");
+
+      // 3. Forward to the menu and attach the table parameter if present
+      if (table) {
+        const separator = baseMenuUrl.includes("?") ? "&" : "?";
+        window.location.replace(`${baseMenuUrl}${separator}table=${encodeURIComponent(table)}`);
+      } else {
+        window.location.replace(baseMenuUrl);
+      }
+    </script>
   </head>
   <body>
-    <p>Redirecting...</p>
+    <p>Loading Aura VIP Lounge Menu...</p>
   </body>
 </html>
