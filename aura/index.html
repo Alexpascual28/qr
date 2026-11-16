@@ -9,14 +9,21 @@
       // 2. Read the table number from the QR code link
       const params = new URLSearchParams(window.location.search);
       const table = params.get("table");
+      const main = params.get("main");
 
       // 3. Forward to the menu and attach the table parameter if present
       if (table) {
         const separator = baseMenuUrl.includes("?") ? "&" : "?";
         window.location.replace(`${baseMenuUrl}${separator}table=${encodeURIComponent(table)}`);
+
+      } else if (main) {
+        baseMenuUrl = "https://www.aura-lounge.vip/";
+        window.location.replace(`${baseMenuUrl}`);
+
       } else {
         window.location.replace(baseMenuUrl);
       }
+      
     </script>
   </head>
   <body>
